@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Your Plant Image - Guardians of the Garden</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        nav {
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 999;
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .btn {
+            background-color: #7FFFD4;
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            font-size: 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #36A17F;
+        }
+        #drop-area {
+            border: 2px dashed #7FFFD4;
+            padding: 20px;
+            cursor: pointer;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+        #fileInput {
+            display: none; /* Hide the file input */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+
+            <li><a href="{{ url_for('how_it_works') }}">How it works</a></li>
+
+            <li><a href="{{ url_for('about_us') }}">About Us</a></li>
+
+            <li><a href="{{ url_for('contact_us') }}">Contact Us</a></li>
+
+        </ul>
+    </nav>
+    <div class="container">
+        <div id="drop-area" ondragover="handleDragOver(event)" ondrop="handleDrop(event)">
+            <p>Drag your image here or click "Upload Image" to select an image.</p>
+        </div>
+        <input type="file" id="fileInput" accept="image/*" onchange="handleFileSelect(event)">
+        <button class="btn" id="upload-btn" onclick="document.getElementById('fileInput').click()">Upload Image</button>
+        <button class="btn" id="submit-btn" onclick="submitImage()" style="display: none;">Submit</button>
+        <!-- Add elements to display prediction and confidence -->
+        <div id="prediction-box"></div>
+        <div id="confidence-box"></div>
+    </div>
+
+    <script>
+        function handleDragOver(event) {
+            event.preventDefault();
+            event.dataTransfer.dropEffect = 'copy';
+        }
+    
+        function handleDrop(event) {
+            event.preventDefault();
+            var files = event.dataTransfer.files;
+            handleFiles(files);
+        }
+    
+        function handleFileSelect(event) {
+            var files = event.target.files;
+            handleFiles(files);
+        }
+    
+        function handleFiles(files) {
+            if (files.length === 0) return;
+            var img = document.createElement("img");
+            img.src = URL.createObjectURL(files[0]);
+            img.onload = function() {
+                URL.revokeObjectURL(this.src);
+                document.getElementById("drop-area").innerHTML = '';
+                document.getElementById("drop-area").appendChild(img);
+                document.getElementById('submit-btn').style.display = 'inline-block'; // Show the submit button after image is loaded
+            };
+        }
+    
+        function submitImage() {
+            var fileInput = document.getElementById("fileInput");
+            var file = fileInput.files[0];
+    
+            // Prompt the user with a confirmation dialog
+            var confirmSubmit = confirm("Are you sure you want to continue?");
+            if (confirmSubmit) {
+                // Create a FormData object to send the file
+                var formData = new FormData();
+                formData.append('file', file);
+    
+                // Send the file to the backend using AJAX
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '/upload', true);
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        try {
+                            // Parse the JSON response
+                            var response = JSON.parse(xhr.responseText);
+    
+                            // Get the prediction and confidence from the response
+                            var prediction = response.prediction;
+                            var confidence = response.confidence;
+    
+                            // Display the prediction and confidence on the webpage
+                            document.getElementById('prediction-box').innerHTML = "Prediction: " + prediction;
+                            document.getElementById('confidence-box').innerHTML = "Confidence: " + confidence;
+    
+                            // Redirect based on prediction class
+                            if (prediction === "Potato___Early_blight") {
+                                window.location.href = "/potato_earlyblight";
+                            } else if (prediction === "Potato___Late_blight") {
+                                window.location.href = "/potato_lateblight";
+                            } else if (prediction === "Potato___healthy") {
+                                window.location.href = "/potato_healthy";
+                            } else {
+                                console.error('Unknown prediction class:', prediction);
+                            }
+                        } catch (e) {
+                            console.error('Error parsing response:', e);
+                        }
+                    } else {
+                        console.error('Error uploading file');
+                    }
+                };
+                xhr.send(formData);
+            }
+        }
+    </script>
+    
+</body>
+</html>

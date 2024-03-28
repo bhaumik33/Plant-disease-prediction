@@ -1,0 +1,103 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Late Blight in Potatoes - Guardians of the Garden</title>
+    <style>
+        body {
+            background-color: #000; /* Consistent deep black background */
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin-top: 100px; /* Adjusted for fixed navbar */
+        }
+        nav {
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 999;
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .info-block {
+            background-color: #333; /* Slightly lighter black for the info box */
+            color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            text-align: left; /* Align text to the left for better readability */
+        }
+        .btn {
+            border: 2px solid #7FFFD4; /* Pastel green border color */
+            color: #fff;
+            background-color: #000;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #36A17F; /* Lighter green hover color */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+
+            <li><a href="{{ url_for('how_it_works') }}">How it works</a></li>
+
+            <li><a href="{{ url_for('about_us') }}">About Us</a></li>
+
+            <li><a href="{{ url_for('contact_us') }}">Contact Us</a></li>
+
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Late Blight in Potatoes</h1>
+        <p>Late blight, caused by the pathogen <i>Phytophthora infestans</i>, is notorious for its role in the Irish Potato Famine. It remains a major threat to potato crops worldwide.</p>
+        <div class="info-block">
+            <h2>About Late Blight</h2>
+            <p>Late blight affects the leaves, stems, and fruit of potato plants, presenting as dark, water-soaked lesions that rapidly enlarge. Under humid conditions, a white fungal growth can appear, leading to rapid decay of the plant.</p>
+            <h2>Management and Control</h2>
+            <p>Effective management of late blight involves a combination of strategies:</p>
+            <ul>
+                <li>Using certified disease-free seed potatoes.</li>
+                <li>Implementing crop rotation and proper field sanitation to reduce pathogen sources.</li>
+                <li>Applying fungicides strategically to protect plants during susceptible growth stages.</li>
+                <li>Monitoring weather conditions and adjusting management practices accordingly.</li>
+            </ul>
+            <p>Early detection and immediate action are critical in preventing widespread crop loss.</p>
+        </div>
+        <button class="btn" onclick="window.location.href='https://ipm.ucanr.edu/agriculture/potato/late-blight/'">Learn More</button>
+    </div>
+</body>
+</html>
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Your Plant</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 50px;
+        }
+        nav {
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 999;
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .button {
+            background-color: #7FFFD4;
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            font-size: 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #36A17F;
+        }
+        h1 {
+            font-size: 48px;
+            color: #7FFFD4;
+            margin-bottom: 50px;
+        }
+        .faq {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .faq h2 {
+            color: #7FFFD4;
+        }
+        .faq p {
+            margin: 5px 0 15px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('how_it_works') }}">How it works</a></li>
+
+            <li><a href="{{ url_for('about_us') }}">About Us</a></li>
+
+            <li><a href="{{ url_for('contact_us') }}">Contact Us</a></li>
+
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Select Your Plant</h1>
+        <!-- selection.html -->
+<form method="post" action="{{ url_for('selection') }}">
+    <button type="submit" name="choice" value="potato" class="button">Potato</button>
+    <button type="submit" name="choice" value="tomato" class="button">Tomato</button>
+</form>
+
+        
+        <!-- FAQ Section -->
+        <div class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <p><strong>How do I select a plant?</strong></p>
+            <p>Consider the type of plants you're growing in your garden or farm. If you're concerned about specific symptoms your plants are exhibiting, select the plant type that most closely matches your crops.</p>
+
+            <p><strong>What happens after I select a plant?</strong></p>
+            <p>After selecting a plant, you'll be guided to upload an image of the plant in question. Our system will analyze the image for signs of disease and provide feedback on potential issues and remedies.</p>
+
+            <p><strong>Can I analyze multiple plants?</strong></p>
+            <p>Yes, you can perform separate analyses for each plant type. If you have both tomatoes and potatoes, for example, simply complete the process for one and then start again for the other.</p>
+
+            <p><strong>What if my plant type isn't listed?</strong></p>
+            <p>Currently, our focus is on tomatoes and potatoes due to their common disease profiles. However, we're always looking to expand our database. Stay tuned for updates on additional plants.</p>
+        </div>
+    </div>
+</body>
+</html>

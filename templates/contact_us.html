@@ -1,0 +1,101 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Guardians of the Garden</title>
+    <style>
+        body {
+            background-color: #000; /* Deep black background color */
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 100px;
+        }
+        nav {
+            text-align: center;
+            position: fixed; /* Fixed position for the top menu */
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+            z-index: 999; /* Ensure the menu appears above other content */
+            padding: 10px 0; /* Added padding */
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .button {
+            background-color: #7FFFD4; /* Pastel green button color */
+            color: #000; /* Black button text color */
+            border: none;
+            padding: 15px 30px;
+            font-size: 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #36A17F; /* Lighter green hover color */
+        }
+        input, textarea {
+            width: 70%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            color: #000;
+        }
+        input[type=submit] {
+            background-color: #7FFFD4;
+            color: #000;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            padding: 15px 30px;
+            border-radius: 8px;
+        }
+        input[type=submit]:hover {
+            background-color: #36A17F;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+
+            <li><a href="{{ url_for('about_us') }}">About Us</a></li>
+
+            <li><a href="{{ url_for('how_it_works') }}">How it works</a></li>
+            
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p>Please use the form below to send us your inquiries or messages. Our team will get back to you as soon as possible.</p>
+        <form action="submit_contact_form.php" method="post">
+            <input type="text" name="name" placeholder="Your Name" required><br>
+            <input type="email" name="email" placeholder="Your Email" required><br>
+            <textarea name="message" placeholder="Your Message" required></textarea><br>
+            <input type="submit" value="Send Message" class="button">
+        </form>
+    </div>
+</body>
+</html>

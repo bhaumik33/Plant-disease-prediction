@@ -1,0 +1,113 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works - Guardians of the Garden</title>
+    <style>
+        body {
+            background-color: #000; /* Deep black background color */
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 100px;
+        }
+        nav {
+            text-align: center;
+            position: fixed; /* Fixed position for the top menu */
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+            z-index: 999; /* Ensure the menu appears above other content */
+            padding: 10px 0; /* Added padding */
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a, .step a {
+            color: #7FFFD4; /* Matching the button color for consistency */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .button {
+            background-color: #7FFFD4; /* Pastel green button color */
+            color: #000; /* Black button text color */
+            border: none;
+            padding: 15px 30px;
+            font-size: 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #36A17F; /* Lighter green hover color */
+        }
+        .step {
+            background-color: #333; /* Darker background for steps */
+            color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px; /* Rounded corners for steps */
+            text-align: left; /* Align text to the left for better readability */
+        }
+        .step h2, .step p {
+            margin: 10px 0;
+        }
+        .step p {
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+
+            <li><a href="{{ url_for('about_us') }}">About Us</a></li>
+
+            <li><a href="{{ url_for('contact_us') }}">Contact Us</a></li>
+
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>How It Works</h1>
+        <p>Our innovative platform leverages a state-of-the-art machine learning model to analyze plant leaf images, helping identify diseases with high accuracy. Here's an in-depth look at our process:</p>
+        
+        <div class="step">
+            <h2>Step 1: Data Collection</h2>
+            <p>Our journey begins with the meticulous collection of leaf images from the extensive <a href="https://en.wikipedia.org/wiki/Dataset">Plant Village dataset</a> hosted on Kaggle...</p>
+        </div>
+        
+        <div class="step">
+            <h2>Step 2: Data Preprocessing</h2>
+            <p>In this phase, we employ advanced techniques to prepare the data for training... Learn more about <a href="https://en.wikipedia.org/wiki/Data_pre-processing">data preprocessing</a>.</p>
+        </div>
+        
+        <div class="step">
+            <h2>Step 3: Model Training</h2>
+            <p>With the preprocessed data, we initiate the training of our machine learning model... Discover the intricacies of <a href="https://en.wikipedia.org/wiki/Training,_validation,_and_test_sets">model training</a>.</p>
+        </div>
+        
+        <div class="step">
+            <h2>Step 4: Evaluation</h2>
+            <p>Post-training, the model undergoes rigorous evaluation... More on <a href="https://en.wikipedia.org/wiki/Evaluation_of_binary_classifiers">model evaluation</a>.</p>
+        </div>
+        
+        <div class="step">
+            <h2>Step 5: Deployment</h2>
+            <p>Once our model meets our stringent criteria for accuracy and reliability, we deploy it to our website... Read about <a href="https://en.wikipedia.org/wiki/Software_deployment">software deployment</a>.</p>
+        </div>
+    </div>
+</body>
+</html>

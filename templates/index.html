@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardians of the Garden</title>
+    <style>
+        body {
+            background-color: #000; /* Deep black background color */
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 100px;
+        }
+        nav {
+            text-align: center;
+            position: fixed; /* Fixed position for the top menu */
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+            z-index: 999; /* Ensure the menu appears above other content */
+            padding: 10px 0; /* Added padding */
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .button {
+            background-color: #7FFFD4; /* Pastel green button color */
+            color: #000; /* Black button text color */
+            border: none;
+            padding: 15px 30px;
+            font-size: 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            animation: pulse 1.5s infinite alternate; /* Animation */
+            display: block; /* Change display to block for margin to take effect */
+            margin: 20px auto 50px; /* Increase bottom margin for more space */
+        }
+        .button:hover {
+            background-color: #36A17F; /* Lighter green hover color */
+        }
+        #website-description, .mission, .services {
+            margin-top: 50px;
+            text-align: center; /* Center align the paragraph */
+            font-size: 18px;
+            line-height: 1.6; /* Increased line height */
+        }
+        h1 {
+            font-size: 48px; /* Increased font size for h1 */
+            color: #7FFFD4; /* Pastel green color */
+            margin-bottom: 30px; /* Adjusted margin */
+        }
+        h3 {
+            font-size: 32px; /* Smaller font size for h3 compared to h2 */
+            color: #7FFFD4; /* Keeping the pastel green color */
+            margin-bottom: 20px; /* Slightly reduced bottom margin */
+        }
+        /* Separation and padding for sections */
+        .section {
+            padding-bottom: 50px; /* Add padding to the bottom of each section */
+        }
+
+        /* Animation keyframes */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('how_it_works') }}">How it works</a></li>
+
+            <li><a href="{{ url_for('about_us') }}">About Us</a></li>
+
+            <li><a href="{{ url_for('contact_us') }}">Contact Us</a></li>
+
+        </ul>
+    </nav>
+    <div class="container">
+    
+        <h1>Guardians of the Garden</h1>
+        <p id="website-description">
+            This website allows users to upload images of tomato or potato leaves and analyzes them for diseases. 
+            Our advanced algorithms quickly identify common leaf diseases, providing users with valuable insights 
+            to protect their plants and ensure a healthy garden. Join us in safeguarding your garden today!
+        </p>
+        <br> <a href="{{ url_for('selection') }}" class="button">Start Now</a>
+        
+<br>
+        <!-- Our Mission Section -->
+        <div class="mission section">
+            <h3>Our Mission</h3>
+            <p>
+                Our mission is to eliminate waste crops by identifying crop diseases even before they spread to a non-curable portion. 
+                We aim to empower farmers with the knowledge and tools needed to protect their yields and contribute to global food security.
+            </p>
+        </div>
+
+        <!-- Our Services Section -->
+        <div class="services section">
+            <h3>Our Services</h3>
+            <p>
+                Our services include offering a platform where farmers can easily upload images of their crops for disease analysis. 
+                Our website leverages advanced algorithms to quickly diagnose common and rare plant diseases, 
+                providing timely insights and actionable advice to farmers worldwide.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+<!--   <button class="button" onclick="window.location.href='upload.html'">
+            Start Now</button><button class="button" onclick="window.location.href='upload.html'">Start Now</button> -->
