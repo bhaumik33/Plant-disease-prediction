@@ -1,5 +1,5 @@
 🌿 Plant Disease Prediction Web Application
-A machine learning-powered web app that allows users—especially farmers and agricultural experts—to identify plant diseases from leaf images using a custom ResNet model. Built using Flask and deployed with an intuitive front-end interface.
+A machine learning-powered web app that allows users, especially farmers and agricultural experts, to identify plant diseases from leaf images using a custom ResNet model. Built using Flask and deployed with an intuitive front-end interface.
 
 🔍 Features
 Upload leaf images and detect plant disease.
