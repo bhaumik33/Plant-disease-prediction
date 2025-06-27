@@ -67,25 +67,12 @@ Wait for prediction result (disease name or "Healthy").
 
 View confidence scores and take necessary action.
 
-📁 Project Structure
-cpp
-Copy
-Edit
 
-├── static/
-│   ├── css/
-│   └── js/
-├── templates/
-│   └── index.html
-├── model/
-│   └── plant_model.h5
-├── app.py
-├── requirements.txt
-└── README.md
 📄 License
 This project is open-source under the MIT License.
 
 🤝 Contribution
+
 Contributions, feedback, and feature requests are welcome! Feel free to open an issue or submit a pull request.
 
 
